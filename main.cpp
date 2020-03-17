@@ -62,7 +62,7 @@ int main () {
             else {
                total_numbers = accumulate(numbers.begin(), numbers.end(), 0);
                amount_numbers = numbers.size();
-               cout << "\nThe mean of the numbers in the list is: " << static_cast<double>(total_numbers / amount_numbers) << endl;
+               cout << "\nThe mean of the numbers in the list is: " << static_cast<double>(total_numbers) / amount_numbers << endl;
             }
       }
       else if (selection == 'S' || selection == 's') {
