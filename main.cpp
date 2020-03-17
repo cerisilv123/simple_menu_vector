@@ -31,6 +31,8 @@ int main () {
       cout << "R - Remove a number from the list" << endl; 
       cout << "T - Find out the total amount of numbers added together in the list" << endl; 
       cout << "Q - Quit" << endl; 
+      
+      cout << "\nEnter a selection: ";
       cin >> selection; 
       
       if (selection == 'P' || selection == 'p') {
