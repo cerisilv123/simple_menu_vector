@@ -8,18 +8,18 @@ using namespace std;
 // ======= Function Prototypes ======= // 
 
 void display_menu();
-char selection_to_upper(char& c);
-void print_list (vector<double> v);
-void add_number (vector<double>& v);
-void calculate_mean(vector<double> v);
-void find_smallest_number(vector<double> v);
-void find_largest_number(vector<double> v);
-void smallest_to_largest(vector<double>& v);
-void largest_to_smallest(vector<double>& v);
-void total_amount(vector<double> v);
-void find_a_number(vector<double> v);
-void remove_a_number(vector<double>& v);
-void delete_list(vector<double>& v);
+char selection_to_upper(char &c);
+void print_list (const vector<double> &v);
+void add_number (vector<double> &v);
+void calculate_mean(const vector<double> &v);
+void find_smallest_number(const vector<double> &v);
+void find_largest_number(const vector<double> &v);
+void smallest_to_largest(vector<double> &v);
+void largest_to_smallest(vector<double> &v);
+void total_amount(const vector<double> &v);
+void find_a_number(const vector<double> &v);
+void remove_a_number(vector<double> &v);
+void delete_list(vector<double> &v);
 void username_login();
 void password_login();
 
@@ -41,7 +41,6 @@ int main() {
         
         cin >> selection;
         selection_to_upper(selection);
-        cout << "Selection is: " << selection << endl; 
         
         if (selection == 'P') 
             print_list(numbers);
@@ -69,7 +68,7 @@ int main() {
             cout << "Goodbye" << endl;
         else 
             cout << "Unknown selection, please try again" << endl;
-    } while (selection != 'q' && selection != 'Q');
+    } while (selection != 'Q');
 
     cout  << endl;
     return 0;
@@ -119,13 +118,13 @@ void display_menu() {
 }
 
 // Turn selection to uppercase and return
-char selection_to_upper(char& c) {
+char selection_to_upper(char &c) {
     c = toupper(c);
     return c;
 }
 
 // Print list
-void print_list (vector<double> v) {
+void print_list (const vector<double> &v) { // Const - this function shouldn't make changes to the vector
       if (v.size() == 0)
           cout << "[] - the list is empty" << endl;
       else {
@@ -138,7 +137,7 @@ void print_list (vector<double> v) {
 }
 
 // Add number 
-void add_number (vector<double>& v) {
+void add_number (vector<double> &v) {
        double num_to_add {};
        cout << "Enter an integer to add to the list: ";
        cin >> num_to_add;
@@ -147,7 +146,7 @@ void add_number (vector<double>& v) {
 }
 
 // Calculate mean 
-void calculate_mean(vector<double> v) {
+void calculate_mean(const vector<double> &v) {
        if (v.size() == 0)
            cout << "Unable to calculate mean - no data" << endl;
        else {
@@ -159,7 +158,7 @@ void calculate_mean(vector<double> v) {
 }
 
 // Find smallest number
-void find_smallest_number(vector<double> v) {
+void find_smallest_number(const vector<double> &v) {
       if (v.size() == 0) 
           cout << "Unable to determine the smallest - list is empty" << endl;
       else {
@@ -172,7 +171,7 @@ void find_smallest_number(vector<double> v) {
 }
 
 // Find largest number
-void find_largest_number(vector<double> v) {
+void find_largest_number(const vector<double> &v) {
      if (v.size() == 0)
                 cout << "Unable to determine largest - list is empty"<< endl;   
      else {
@@ -185,25 +184,25 @@ void find_largest_number(vector<double> v) {
 }
 
 // Delete List
-void delete_list(vector<double>& v) {
+void delete_list(vector<double> &v) {
      v.clear();
      cout << "The list is now empty" << endl; 
 }
 
 // Sorting the list smallest - largest
-void smallest_to_largest(vector<double>& v) {
+void smallest_to_largest(vector<double> &v) {
     sort (v.begin(), v.end());
     cout << "The array is now sorted from smallest to largest" << endl; 
 }
 
 // Sorting the list largest - smallest
-void largest_to_smallest(vector<double>& v) {
+void largest_to_smallest(vector<double> &v) {
     sort(v.begin(), v.end(), greater<double>());
     cout << "The array is now sorted from largest to smallest" << endl;
 }
 
 // Finding a number in the list & how many times
-void find_a_number(vector<double> v) {
+void find_a_number(const vector<double> &v) {
     cout << "Enter a number you'd like to search for: ";
     double item {};
     cin >> item; 
@@ -218,7 +217,7 @@ void find_a_number(vector<double> v) {
 }
 
 // Find out the total amount of numbers added together
-void total_amount(vector<double> v) {
+void total_amount(const vector<double> &v) {
     double total {};
     for (size_t i {0}; i < v.size(); i++) {
         total += v[i];
@@ -227,7 +226,7 @@ void total_amount(vector<double> v) {
 }
 
 // Remove a number from the list
- void remove_a_number (vector<double>& v) {
+ void remove_a_number (vector<double> &v) {
      if (v.size() == 0) {
          cout << "\nThere is no data in the list to erase" << endl; 
      } 
