@@ -33,6 +33,7 @@ int main() {
     // Login to menu
     username_login();
     password_login();
+    cout << "\nPermission Granted:" << endl;
     
     do {
         
@@ -80,21 +81,24 @@ int main() {
 void username_login() {
     string key_username {"cerisilv123"};
     string username_entered {};
-    do {
-        cout << "Please enter a username: ";
-        getline(cin,username_entered);
-    } while (key_username != username_entered);
+    cout << "Please enter a username: ";
+    getline(cin,username_entered);
+    if (username_entered == key_username) // Recursive Function - will use more memory as popping off the stack
+        return;
+    else 
+        username_login();
 }
 
 // Password log in 
 void password_login() {
     string key_password {"123"};
     string password_entered {};
-    do {
-        cout << "Please enter a password: "; 
-        getline(cin,password_entered);
-    } while (key_password != password_entered);
-    cout << "\nPermission granted" << endl;
+    cout << "Please enter a password: "; 
+    getline(cin,password_entered);
+    if (password_entered == key_password) // Recursive Function - will use more memory as popping off the stack
+        return;
+    else
+        password_login();
 }
 
 // Display Menu
