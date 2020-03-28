@@ -43,33 +43,32 @@ int main() {
         selection_to_upper(selection);
         cout << "Selection is: " << selection << endl; 
         
-        if (selection == 'P') {
+        if (selection == 'P') 
             print_list(numbers);
-        } else if (selection == 'A') {
+        else if (selection == 'A') 
             add_number(numbers);
-        } else if (selection == 'M') {
+        else if (selection == 'M') 
            calculate_mean(numbers);
-        } else if (selection == 'S') {
+        else if (selection == 'S') 
            find_smallest_number(numbers);
-        } else if (selection == 'L') {
+        else if (selection == 'L') 
            find_largest_number(numbers);
-        } else if (selection == 'O') {
+        else if (selection == 'O') 
            smallest_to_largest(numbers);
-        } else if (selection == 'Z') {
+        else if (selection == 'Z') 
            largest_to_smallest(numbers);
-        } else if (selection == 'T') {
+        else if (selection == 'T') 
            total_amount(numbers);
-        } else if (selection == 'F') {
+        else if (selection == 'F') 
            find_a_number(numbers);
-        } else if (selection == 'R') {
+        else if (selection == 'R') 
            remove_a_number(numbers);
-        } else if (selection == 'D') {
+        else if (selection == 'D') 
            delete_list(numbers);
-        } else if (selection == 'Q') {
+        else if (selection == 'Q') 
             cout << "Goodbye" << endl;
-        } else {
+        else 
             cout << "Unknown selection, please try again" << endl;
-        }
     } while (selection != 'q' && selection != 'Q');
 
     cout  << endl;
