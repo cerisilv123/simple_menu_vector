@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -19,6 +20,8 @@ void total_amount(vector<double> v);
 void find_a_number(vector<double> v);
 void remove_a_number(vector<double>& v);
 void delete_list(vector<double>& v);
+void username_login();
+void password_login();
 
 // ======= Main Function ======= // 
 
@@ -27,9 +30,14 @@ int main() {
     vector<double> numbers {};
     char selection {};
     
+    // Login to menu
+    username_login();
+    password_login();
+    
     do {
         
         display_menu();
+        
         cin >> selection;
         selection_to_upper(selection);
         
@@ -67,6 +75,27 @@ int main() {
 }
 
 // ======= Function Definitions ======= // 
+
+// Username log in
+void username_login() {
+    string key_username {"cerisilv123"};
+    string username_entered {};
+    do {
+        cout << "Please enter a username: ";
+        getline(cin,username_entered);
+    } while (key_username != username_entered);
+}
+
+// Password log in 
+void password_login() {
+    string key_password {"123"};
+    string password_entered {};
+    do {
+        cout << "Please enter a password: "; 
+        getline(cin,password_entered);
+    } while (key_password != password_entered);
+    cout << "\nPermission granted" << endl;
+}
 
 // Display Menu
 void display_menu() {
