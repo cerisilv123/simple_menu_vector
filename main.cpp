@@ -8,7 +8,7 @@ using namespace std;
 // ======= Function Prototypes ======= // 
 
 void display_menu();
-void selection_to_upper(char& c);
+char selection_to_upper(char& c);
 void print_list (vector<double> v);
 void add_number (vector<double>& v);
 void calculate_mean(vector<double> v);
@@ -41,6 +41,7 @@ int main() {
         
         cin >> selection;
         selection_to_upper(selection);
+        cout << "Selection is: " << selection << endl; 
         
         if (selection == 'P') {
             print_list(numbers);
@@ -119,8 +120,9 @@ void display_menu() {
 }
 
 // Turn selection to uppercase and return
-void selection_to_upper(char& c) {
+char selection_to_upper(char& c) {
     c = toupper(c);
+    return c;
 }
 
 // Print list
